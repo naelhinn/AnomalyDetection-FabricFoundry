@@ -190,15 +190,6 @@ If you want multiple run_ids retained, switch writes to `mode("append")`.
 
 ---
 
-## Why you only saw anomaly events in Gold
-
-If `dbo.silver_event_windows` contains only `label_prior = 1` rows, then Gold will contain only anomalies.
-
-The two common causes are:
-
-1) You did not upload the `normal/` folder from manual-split frames, so `silver_label_frame_index` only had `label_prior=1`
-2) You did not enable synthetic normal window generation
-
 **Quick validation:**
 ```sql
 SELECT label_prior, COUNT(*) AS n
